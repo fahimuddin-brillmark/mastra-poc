@@ -9,14 +9,13 @@ import {
 	Observability,
 	SensitiveDataFilter,
 } from "@mastra/observability";
-import { weatherAgent } from "./agents/weather-agent";
-import { weatherTool } from "./tools/weather-tool";
-import { weatherWorkflow } from "./workflows/weather-workflow";
+// import { weatherAgent } from "./agents/weather-agent";
+// import { weatherWorkflow } from "./workflows/weather-workflow";
 
 export const mastra = new Mastra({
-	workflows: { weatherWorkflow },
-	agents: { weatherAgent },
-	tools: { weatherTool },
+	workflows: {},
+	agents: {},
+	tools: {},
 	scorers: {},
 	editor: new MastraEditor(),
 	storage: new MastraCompositeStore({
