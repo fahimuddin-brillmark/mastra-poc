@@ -1,6 +1,7 @@
 import { Mastra } from "@mastra/core/mastra";
 import { MastraCompositeStore } from "@mastra/core/storage";
 import { DuckDBStore } from "@mastra/duckdb";
+import { MastraEditor } from "@mastra/editor";
 import { LibSQLStore } from "@mastra/libsql";
 import { PinoLogger } from "@mastra/loggers";
 import {
@@ -9,20 +10,15 @@ import {
 	SensitiveDataFilter,
 } from "@mastra/observability";
 import { weatherAgent } from "./agents/weather-agent";
-import { scrapeCompetitorPageTool } from "./tools/scrape-competitor-page-tool";
-import { scrapeProductDetailPageTool } from "./tools/scrape-product-detail-page-tool";
+import { weatherTool } from "./tools/weather-tool";
 import { weatherWorkflow } from "./workflows/weather-workflow";
 
 export const mastra = new Mastra({
 	workflows: { weatherWorkflow },
 	agents: { weatherAgent },
-	tools: { scrapeCompetitorPageTool, scrapeProductDetailPageTool },
+	tools: { weatherTool },
 	scorers: {},
-	// storage: new LibSQLStore({
-	// 	// stores observability, scores, ... into memory storage, if it needs to persist, change to file:../mastra.db
-	// 	id: "mastra-storage",
-	// 	url: ":memory:",
-	// }),
+	editor: new MastraEditor(),
 	storage: new MastraCompositeStore({
 		id: "composite-storage",
 		default: new LibSQLStore({
