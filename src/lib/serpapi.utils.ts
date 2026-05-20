@@ -13,7 +13,7 @@ export const SERPAPI_BASE_URL = "https://serpapi.com/search.json";
 
 export const DEFAULT_PRICE_BAND_MIN_RATIO = 0.3;
 export const DEFAULT_PRICE_BAND_MAX_RATIO = 3;
-export const DEFAULT_SEARCH_RESULT_LIMIT = 5;
+export const DEFAULT_SEARCH_RESULT_LIMIT = 2;
 
 const STOP_WORDS = new Set([
 	"a",

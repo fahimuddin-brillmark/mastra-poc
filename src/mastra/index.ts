@@ -9,12 +9,13 @@ import {
 	Observability,
 	SensitiveDataFilter,
 } from "@mastra/observability";
+import { pricingComparisonAgent } from "./agents/price-comparison-agent";
 import { weatherAgent } from "./agents/weather-agent";
 import { weatherWorkflow } from "./workflows/weather-workflow";
 
 export const mastra = new Mastra({
 	workflows: { weatherWorkflow },
-	agents: { weatherAgent },
+	agents: { weatherAgent, pricingComparisonAgent },
 	tools: {},
 	scorers: {},
 	editor: new MastraEditor(),
