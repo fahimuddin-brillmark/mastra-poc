@@ -1,5 +1,7 @@
 import { Agent } from "@mastra/core/agent";
 import { Memory } from "@mastra/memory";
+import { brandSimilarityScorer } from "../scorers/brand-similarity-scorer";
+import { recommendationScorer } from "../scorers/recommendation-scorer";
 import { calculatePriceMetricsTool } from "../tools/ecommerce/calculate-price-metrics-tool";
 import { extractProductDetailsTool } from "../tools/ecommerce/extract-product-details-tool";
 import { searchProductsTool } from "../tools/ecommerce/search-products-tool";
@@ -68,4 +70,14 @@ Stay factual. Cite only data returned by tools. Do not invent specifications, pr
 			lastMessages: 20,
 		},
 	}),
+	scorers: {
+		brandSimilarity: {
+			scorer: brandSimilarityScorer,
+			sampling: { type: "ratio", rate: 1 },
+		},
+		recommendation: {
+			scorer: recommendationScorer,
+			sampling: { type: "ratio", rate: 1 },
+		},
+	},
 });

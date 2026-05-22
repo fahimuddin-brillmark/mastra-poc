@@ -24,14 +24,11 @@ export async function scrapeUrl(
 ): Promise<{ markdown: string; metadataDescription?: string }> {
 	const firecrawl = getFirecrawlClient();
 
-	console.log(url);
-
 	const result = await firecrawl.scrape(url, {
 		formats: ["markdown"],
 		onlyMainContent: options?.onlyMainContent ?? true,
 		waitFor: options?.waitFor ?? 2_000,
 	});
-	console.log(JSON.stringify(result, null, 2));
 
 	const markdown = result.markdown?.trim();
 	if (!markdown) {

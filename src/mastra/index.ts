@@ -11,13 +11,24 @@ import {
 } from "@mastra/observability";
 import { pricingComparisonAgent } from "./agents/price-comparison-agent";
 import { weatherAgent } from "./agents/weather-agent";
+import { brandSimilarityScorer } from "./scorers/brand-similarity-scorer";
+import { recommendationScorer } from "./scorers/recommendation-scorer";
+import {
+	weatherToolCallAccuracyCodeScorer,
+	weatherToolCallAccuracyLlmScorer,
+} from "./scorers/weather-tool-call-accuracy-scorers";
 import { weatherWorkflow } from "./workflows/weather-workflow";
 
 export const mastra = new Mastra({
 	workflows: { weatherWorkflow },
 	agents: { weatherAgent, pricingComparisonAgent },
 	tools: {},
-	scorers: {},
+	scorers: {
+		brandSimilarityScorer,
+		weatherToolCallAccuracyCodeScorer,
+		weatherToolCallAccuracyLlmScorer,
+		recommendationScorer,
+	},
 	editor: new MastraEditor(),
 	storage: new MastraCompositeStore({
 		id: "composite-storage",

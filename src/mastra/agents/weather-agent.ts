@@ -1,4 +1,5 @@
 import { Agent } from "@mastra/core/agent";
+import { createToolCallAccuracyScorerCode } from "@mastra/evals/scorers/prebuilt";
 import { weatherTool } from "../tools/weather-tool";
 
 export const weatherAgent = new Agent({
@@ -20,4 +21,13 @@ export const weatherAgent = new Agent({
 `,
 	model: "openai/gpt-4o-mini",
 	tools: { weatherTool },
+	scorers: {
+		accuracy: {
+			scorer: createToolCallAccuracyScorerCode({
+				expectedTool: "weatherTool",
+				strictMode: false,
+			}),
+			sampling: { type: "ratio", rate: 1 },
+		},
+	},
 });
