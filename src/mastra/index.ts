@@ -10,6 +10,8 @@ import {
 	SensitiveDataFilter,
 } from "@mastra/observability";
 import { pricingComparisonAgent } from "./agents/price-comparison-agent";
+import { reportReviewerAgent } from "./agents/report-reviewer-agent";
+import { reportWriterAgent } from "./agents/report-writer-agent";
 import { weatherAgent } from "./agents/weather-agent";
 import { brandSimilarityScorer } from "./scorers/brand-similarity-scorer";
 import { recommendationScorer } from "./scorers/recommendation-scorer";
@@ -21,7 +23,12 @@ import { weatherWorkflow } from "./workflows/weather-workflow";
 
 export const mastra = new Mastra({
 	workflows: { weatherWorkflow },
-	agents: { weatherAgent, pricingComparisonAgent },
+	agents: {
+		weatherAgent,
+		pricingComparisonAgent,
+		reportWriterAgent,
+		reportReviewerAgent,
+	},
 	tools: {},
 	scorers: {
 		brandSimilarityScorer,
