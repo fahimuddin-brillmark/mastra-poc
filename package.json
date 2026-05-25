@@ -1,39 +1,39 @@
 {
-  "name": "mastra-voice-agent",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "eval:tool-calls": "bun run src/mastra/evals/evaluate-tool-calls.ts",
-    "dev": "mastra dev",
-    "build": "mastra build",
-    "start": "mastra start"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "engines": {
-    "node": ">=20.9.0"
-  },
-  "dependencies": {
-    "@ai-sdk/openai-compatible": "^2.0.47",
-    "@mastra/core": "^1.36.0",
-    "@mastra/duckdb": "^1.4.0",
-    "@mastra/editor": "^0.9.0",
-    "@mastra/evals": "^1.2.2",
-    "@mastra/libsql": "^1.11.1",
-    "@mastra/loggers": "^1.1.1",
-    "@mastra/memory": "^1.19.0",
-    "@mastra/observability": "^1.13.0",
-    "@mendable/firecrawl-js": "^4.24.2",
-    "ai": "^6.0.183",
-    "zod": "^4.4.3"
-  },
-  "devDependencies": {
-    "@types/node": "^25.8.0",
-    "mastra": "^1.10.0",
-    "typescript": "^6.0.3"
-  }
+	"name": "mastra-voice-agent",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"eval:tool-calls": "bun run src/mastra/evals/evaluate-tool-calls.ts",
+		"dev": "mastra dev",
+		"build": "mastra build",
+		"start": "mastra start"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "module",
+	"engines": {
+		"node": ">=20.9.0"
+	},
+	"dependencies": {
+		"@ai-sdk/openai-compatible": "^2.0.47",
+		"@mastra/core": "^1.36.0",
+		"@mastra/duckdb": "^1.4.0",
+		"@mastra/editor": "^0.9.0",
+		"@mastra/evals": "^1.2.2",
+		"@mastra/libsql": "^1.11.1",
+		"@mastra/loggers": "^1.1.1",
+		"@mastra/memory": "^1.19.0",
+		"@mastra/observability": "^1.13.0",
+		"@mendable/firecrawl-js": "^4.24.2",
+		"ai": "^6.0.183",
+		"zod": "^4.4.3"
+	},
+	"devDependencies": {
+		"@types/node": "^25.8.0",
+		"mastra": "^1.10.0",
+		"typescript": "^6.0.3"
+	}
 }
